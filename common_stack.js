@@ -43,3 +43,7 @@ var load = async function() {
         } else {return [];};
     });
 };
+
+var reset = async function() {
+    await GM.deleteValue('nbrs');
+}

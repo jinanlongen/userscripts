@@ -17,7 +17,9 @@ var save = async function(nbrs) {
 
 var popAndDo = async function(accept) {
     let {nbr, remaining} = await pop();
-    await accept(nbr);
+    if(Boolean(nbr)) { //not empty
+        await accept(nbr);
+    }
     return remaining;
 };
 

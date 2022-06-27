@@ -13,16 +13,10 @@ var save = async function(nbrs) {
     return GM.setValue('nbrs', nbrsStr);
 };
 
-var processNext = async function() {
+var popAndDo = async function(accept) {
     let {nbr, remaining} = await pop();
-    await processNbr(nbr);
+    await accept(nbr);
     return remaining;
-};
-
-var processNbr = async function(nbr) {
-    console.log(">>> Process nbr: " + nbr + " ...");
-    await delay(1000);
-    console.log(">>> Process nbr: " + nbr + " ... done");
 };
 
 var pop = async function() {

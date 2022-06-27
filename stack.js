@@ -33,5 +33,10 @@ var pop = async function() {
 };
 
 var load = async function() {
-    return GM.getValue('nbrs', "").then(nbrsStr => nbrsStr.split(','));
+    return GM.getValue('nbrs').then(nbrsStr => {
+        if(Boolean(nbrsStr) {
+           return nbrsStr.split(',');
+        } else {return [];};
+    };
+);
 };

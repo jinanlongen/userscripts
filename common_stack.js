@@ -19,7 +19,7 @@ var popAndDo = async function(accept) {
     let {nbr, remaining} = await pop();
     if(Boolean(nbr)) { //not empty
         await accept(nbr);
-    }
+    };
     return remaining;
 };
 

@@ -2,10 +2,6 @@
 // @grant    GM.setValue
 // @grant    GM.deleteValue
 
-var delay = function(time) {
-    return new Promise(resolve => setTimeout(resolve, time));
-};
-
 var save = async function(nbrs) {
     if ((nbrs !== null) && (Array.isArray(nbrs)) && (nbrs.length > 0)) {
         nbrsStr = nbrs.join(',');
@@ -47,3 +43,15 @@ var load = async function() {
 var reset = async function() {
     await GM.deleteValue('nbrs');
 };
+
+var delay = function(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+};
+
+// for test/demo
+var processNbr = async function(nbr) {
+    console.log(">>> Process nbr: " + nbr + " ...");
+    await delay(1000);
+    console.log(">>> Process nbr: " + nbr + " ... done");
+};
+

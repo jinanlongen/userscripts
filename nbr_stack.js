@@ -41,5 +41,5 @@ var load = async function() {
         if(Boolean(nbrsStr)) {
            return nbrsStr.split(',');
         } else {return [];};
-    };
+    });
 };

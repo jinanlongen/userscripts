@@ -1,18 +1,16 @@
+// @grant    GM.getValue
+// @grant    GM.setValue
+
+var delay = function(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+};
+
 var save = async function(nbrs) {
     var nbrsStr = "";
     if ((nbrs !== null) && (Array.isArray(nbrs))) {
         nbrsStr = nbrs.join(',');
     };
     return GM.setValue('nbrs', nbrsStr);
-};     
-
-var countRemainings = function(count) {
-    console.log("remaining: " + count);
-    $("#count").text(count.toString());
-};
-
-var delay = function(time) {
-    return new Promise(resolve => setTimeout(resolve, time));
 };
 
 var processNext = async function() {

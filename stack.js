@@ -1,5 +1,6 @@
 // @grant    GM.getValue
 // @grant    GM.setValue
+// @grant    GM.deleteValue
 
 var delay = function(time) {
     return new Promise(resolve => setTimeout(resolve, time));
@@ -7,10 +8,12 @@ var delay = function(time) {
 
 var save = async function(nbrs) {
     var nbrsStr = "";
-    if ((nbrs !== null) && (Array.isArray(nbrs))) {
+    if ((nbrs !== null) && (Array.isArray(nbrs)) && (nbrs.length > 0)) {
         nbrsStr = nbrs.join(',');
+        return GM.setValue('nbrs', nbrsStr);
+    } else {
+        return GM.deleteValue('nbrs');
     };
-    return GM.setValue('nbrs', nbrsStr);
 };
 
 var popAndDo = async function(accept) {
@@ -38,5 +41,4 @@ var load = async function() {
            return nbrsStr.split(',');
         } else {return [];};
     };
-);
 };

@@ -46,4 +46,4 @@ var load = async function() {
 
 var reset = async function() {
     await GM.deleteValue('nbrs');
-}
+};

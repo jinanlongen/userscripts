@@ -7,7 +7,6 @@ var delay = function(time) {
 };
 
 var save = async function(nbrs) {
-    var nbrsStr = "";
     if ((nbrs !== null) && (Array.isArray(nbrs)) && (nbrs.length > 0)) {
         nbrsStr = nbrs.join(',');
         return GM.setValue('nbrs', nbrsStr);

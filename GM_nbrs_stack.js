@@ -3,12 +3,19 @@
 // @grant    GM.deleteValue
 
 var save = async function(nbrs) {
-    if ((nbrs !== null) && (Array.isArray(nbrs)) && (nbrs.length > 0)) {
-        nbrsStr = nbrs.join(',');
-        return GM.setValue('nbrs', nbrsStr);
+    if ((nbrs !== null) && (Array.isArray(nbrs)) ) {
+        return GM.setValue('nbrs', JSON.stringify(nbr));
     } else {
         return GM.deleteValue('nbrs');
     };
+};
+
+var load = async function() {
+    return GM.getValue('nbrs').then(nbrs => {
+        if(Boolean(nbrs)) {
+           return JSON.parse(nbrs);
+        } else {return [];};
+    });
 };
 
 var popAndDo = async function(accept) {
@@ -29,14 +36,6 @@ var pop = async function() {
     }).then(({nbr, nbrs}) => {
         let remaining = nbrs.length;
         return {nbr, remaining};
-    });
-};
-
-var load = async function() {
-    return GM.getValue('nbrs').then(nbrsStr => {
-        if(Boolean(nbrsStr)) {
-           return nbrsStr.split(',');
-        } else {return [];};
     });
 };
 

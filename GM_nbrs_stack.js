@@ -4,7 +4,7 @@
 
 var save = async function(nbrs) {
     if ((nbrs !== null) && (Array.isArray(nbrs)) ) {
-        return GM.setValue('nbrs', JSON.stringify(nbr));
+        return GM.setValue('nbrs', JSON.stringify(nbrs));
     } else {
         return GM.deleteValue('nbrs');
     };

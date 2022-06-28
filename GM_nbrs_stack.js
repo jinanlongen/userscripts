@@ -3,10 +3,10 @@
 // @grant    GM.deleteValue
 
 var save = async function(nbrs) {
-    if ((nbrs !== null) && (Array.isArray(nbrs)) ) {
-        return GM.setValue('nbrs', JSON.stringify(nbrs));
-    } else {
+    if (nbrs == null) {
         return GM.deleteValue('nbrs');
+    } else {
+        return GM.setValue('nbrs', JSON.stringify(nbrs));
     };
 };
 
@@ -14,8 +14,14 @@ var load = async function() {
     return GM.getValue('nbrs').then(nbrs => {
         if(Boolean(nbrs)) {
            return JSON.parse(nbrs);
-        } else {return [];};
+        } else {
+            return null;
+        };
     });
+};
+
+var locked = async function() {
+    return GM.getValue('nbrs').then(nbrs => {return Boolean(nbrs);});
 };
 
 var popAndDo = async function(accept) {

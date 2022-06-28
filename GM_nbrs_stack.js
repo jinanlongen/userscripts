@@ -37,7 +37,7 @@ var pop = async function() {
         let nbr = nbrs.shift();
         return {nbr, nbrs};
     }).then(({nbr, nbrs}) => {
-        await save(nbrs);
+        save(nbrs);
         return {nbr, nbrs};
     }).then(({nbr, nbrs}) => {
         let remaining = nbrs.length;

@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Resolve Concerns (Onepizza)
-// @namespace    http://tampermonkey.net/
+// @namespace    http://jinanlongen.com/
 // @version      0.1
 // @description  Onepizza Concern Resolving
 // @author       Rodin Luo
-// @require      https://raw.githubusercontent.com/jinanlongen/userscripts/main/GM_nbrs_stack.js
+// @require      https://raw.githubusercontent.com/jinanlongen/userscripts/main/GM_stack.user.js
 // @match        *://lc.onepizza.net/Operation/ConcernResolving*
 // @grant        GM.getValue
 // @grant        GM.setValue
